@@ -1,6 +1,8 @@
 import { fetchCustomers, fetchFilteredCustomers } from '@/app/lib/data';
 import CustomersTable from '@/app/ui/customers/table';
+import { CustomerTableSkeleton } from '@/app/ui/skeletons';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
     title: "customer"
@@ -24,5 +26,9 @@ export default async function Page({ searchParams }: {
         }
     }
 
-    return <CustomersTable customers={customerDetails.flat()} />
+    return (
+        <Suspense fallback={<CustomerTableSkeleton />}>
+            <CustomersTable customers={customerDetails.flat()} />
+        </Suspense>
+    )
 }
