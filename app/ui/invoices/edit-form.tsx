@@ -12,8 +12,6 @@ import { Button } from '@/app/ui/button';
 import { State, updateInvoice } from '@/app/lib/actions';
 import { useState } from 'react';
 
-export const dynamic = "force-dynamic";
-
 export default function EditInvoiceForm({
     invoice,
     customers,

@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     title: "Invoice Edit"
 }
 
-export const dynamic = "force-dynamic";
-
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id;
     const [customers, invoice] = await Promise.all([fetchCustomers(), fetchInvoiceById(id)])
